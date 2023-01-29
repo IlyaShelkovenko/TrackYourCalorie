@@ -3,7 +3,6 @@
  */
 package com.gmail.hostov47.onboarding_presentation.goal
 
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text

@@ -16,6 +16,7 @@ import com.gmail.hostov47.onboarding_presentation.age.AgeScreen
 import com.gmail.hostov47.onboarding_presentation.gender.GenderScreen
 import com.gmail.hostov47.onboarding_presentation.goal.GoalScreen
 import com.gmail.hostov47.onboarding_presentation.height.HeightScreen
+import com.gmail.hostov47.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.gmail.hostov47.onboarding_presentation.weight.WeightScreen
 import com.gmail.hostov47.onboarding_presentation.welcome.WelcomeScreen
 import com.gmail.hostov47.trackyourcalorie.navigation.navigate
@@ -67,7 +68,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
-
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.ACTIVITY) {
                             ActivityScreen(
