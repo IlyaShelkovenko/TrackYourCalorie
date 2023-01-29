@@ -13,6 +13,8 @@ import androidx.navigation.compose.rememberNavController
 import com.gmail.hostov47.core.navigation.Route
 import com.gmail.hostov47.onboarding_presentation.age.AgeScreen
 import com.gmail.hostov47.onboarding_presentation.gender.GenderScreen
+import com.gmail.hostov47.onboarding_presentation.height.HeightScreen
+import com.gmail.hostov47.onboarding_presentation.weight.WeightScreen
 import com.gmail.hostov47.onboarding_presentation.welcome.WelcomeScreen
 import com.gmail.hostov47.trackyourcalorie.navigation.navigate
 import com.gmail.hostov47.trackyourcalorie.ui.theme.TrackYourCalorieTheme
@@ -51,10 +53,16 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.HEIGHT) {
-
+                            HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.WEIGHT) {
-
+                            WeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.NUTRIENT_GOAL) {
 
