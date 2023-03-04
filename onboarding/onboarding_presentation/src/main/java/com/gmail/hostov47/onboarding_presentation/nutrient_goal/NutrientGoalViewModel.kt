@@ -35,22 +35,22 @@ class NutrientGoalViewModel @Inject constructor(
 
     fun onEvent(event: NutrientGoalEvent) {
         when (event) {
-            is NutrientGoalEvent.onCarbRatioEnter -> {
+            is NutrientGoalEvent.OnCarbRatioEnter -> {
                 state = state.copy(
                     carbsRatio = filterOutDigits(event.ratio)
                 )
             }
-            is NutrientGoalEvent.onFatRatioEnter -> {
+            is NutrientGoalEvent.OnFatRatioEnter -> {
                 state = state.copy(
                     fatsRatio = filterOutDigits(event.ratio)
                 )
             }
-            is NutrientGoalEvent.onProteinRatioEnter -> {
+            is NutrientGoalEvent.OnProteinRatioEnter -> {
                 state = state.copy(
                     proteinRatio = filterOutDigits(event.ratio)
                 )
             }
-            NutrientGoalEvent.onNextClick -> {
+            NutrientGoalEvent.OnNextClick -> {
                 val result = validateNutrients(
                     carbsRatioText = state.carbsRatio,
                     proteinRatioText = state.proteinRatio,

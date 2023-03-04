@@ -5,8 +5,8 @@
 package com.gmail.hostov47.onboarding_presentation.nutrient_goal
 
 sealed class NutrientGoalEvent {
-    data class onCarbRatioEnter(val ratio: String) : NutrientGoalEvent()
-    data class onProteinRatioEnter(val ratio: String) : NutrientGoalEvent()
-    data class onFatRatioEnter(val ratio: String) : NutrientGoalEvent()
-    object onNextClick : NutrientGoalEvent()
+    data class OnCarbRatioEnter(val ratio: String) : NutrientGoalEvent()
+    data class OnProteinRatioEnter(val ratio: String) : NutrientGoalEvent()
+    data class OnFatRatioEnter(val ratio: String) : NutrientGoalEvent()
+    object OnNextClick : NutrientGoalEvent()
 }
