@@ -2,7 +2,7 @@
  * Created by Ilia Shelkovenko on 26.01.2023.
  */
 
-package com.gmail.hostov47.core.domain
+package com.gmail.hostov47.core.data.preferences
 
 import android.content.SharedPreferences
 import com.gmail.hostov47.core.domain.model.ActivityLevel
@@ -69,6 +69,16 @@ class DefaultPreferences(
             .apply()
     }
 
+    override fun saveShouldShowOnboarding(shouldShow: Boolean) {
+        sharedPref.edit()
+            .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+            .apply()
+    }
+
+    override fun loadShouldShowOnboarding(): Boolean {
+        return sharedPref.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
+    }
+
     override fun loadUserInfo(): UserInfo {
         val age = sharedPref.getInt(Preferences.KEY_AGE, -1)
         val height = sharedPref.getInt(Preferences.KEY_HEIGHT, -1)
@@ -93,4 +103,6 @@ class DefaultPreferences(
             fatRatio = fatRatio
         )
     }
+
+
 }

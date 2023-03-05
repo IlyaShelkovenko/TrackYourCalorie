@@ -6,8 +6,6 @@ package com.gmail.hostov47.tracker_domain.use_case
 
 import com.gmail.hostov47.tracker_domain.model.TrackedFood
 import com.gmail.hostov47.tracker_domain.repository.TrackerRepository
-import kotlinx.coroutines.flow.Flow
-import java.time.LocalDate
 
 class DeleteTrackedFood(
     private val repository: TrackerRepository

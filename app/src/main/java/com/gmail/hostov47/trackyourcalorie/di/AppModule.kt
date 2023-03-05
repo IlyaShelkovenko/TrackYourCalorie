@@ -7,7 +7,7 @@ package com.gmail.hostov47.trackyourcalorie.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import com.gmail.hostov47.core.domain.DefaultPreferences
+import com.gmail.hostov47.core.data.preferences.DefaultPreferences
 import com.gmail.hostov47.core.domain.preferences.Preferences
 import com.gmail.hostov47.core.domain.use_case.FilterOutDigits
 import dagger.Module
