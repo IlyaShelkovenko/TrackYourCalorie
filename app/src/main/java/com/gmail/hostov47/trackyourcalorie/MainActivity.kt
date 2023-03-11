@@ -19,6 +19,7 @@ import com.gmail.hostov47.onboarding_presentation.height.HeightScreen
 import com.gmail.hostov47.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.gmail.hostov47.onboarding_presentation.weight.WeightScreen
 import com.gmail.hostov47.onboarding_presentation.welcome.WelcomeScreen
+import com.gmail.hostov47.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import com.gmail.hostov47.trackyourcalorie.navigation.navigate
 import com.gmail.hostov47.trackyourcalorie.ui.theme.TrackYourCalorieTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -84,7 +85,9 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
-
+                            TrackerOverviewScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.SEARCH) {
 
