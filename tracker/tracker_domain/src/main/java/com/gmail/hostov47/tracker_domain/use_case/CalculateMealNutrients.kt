@@ -17,18 +17,19 @@ import kotlin.math.roundToInt
 class CalculateMealNutrients(
     private val preferences: Preferences
 ) {
-    operator fun invoke(trackedFood: List<TrackedFood>): Result {
-        val allNutrients = trackedFood
+
+    operator fun invoke(trackedFoods: List<TrackedFood>): Result {
+        val allNutrients = trackedFoods
             .groupBy { it.mealType }
             .mapValues { entry ->
                 val type = entry.key
                 val foods = entry.value
                 MealNutrients(
                     carbs = foods.sumOf { it.carbs },
-                    protein = foods.sumOf { it.carbs },
-                    fat = foods.sumOf { it.carbs },
-                    calories = foods.sumOf { it.carbs },
-                    mealType = type,
+                    protein = foods.sumOf { it.protein },
+                    fat = foods.sumOf { it.fat },
+                    calories = foods.sumOf { it.calories },
+                    mealType = type
                 )
             }
         val totalCarbs = allNutrients.values.sumOf { it.carbs }
@@ -81,7 +82,6 @@ class CalculateMealNutrients(
         }
         return (bmr(userInfo) * activityFactor + calorieExtra).roundToInt()
     }
-
 
     data class MealNutrients(
         val carbs: Int,
