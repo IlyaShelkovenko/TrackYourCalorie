@@ -16,7 +16,7 @@ fun Product.toTrackableFood(): TrackableFood? {
     return TrackableFood(
         name = productName ?: return null,
         carbsPer100g = carbsPer100g,
-        proteinsPer100g = proteinPer100g,
+        proteinPer100g = proteinPer100g,
         fatPer100g = fatPer100g,
         caloriesPer100g = caloriesPer100g,
         imageUrl = imageFrontThumbUrl,

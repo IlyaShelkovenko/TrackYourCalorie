@@ -3,7 +3,7 @@
  */
 package com.gmail.hostov47.tracker_presentation.tracker_overview.components
 
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -88,13 +88,13 @@ fun ExpandableMeal(
                         )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(
-                            name = stringResource(id = string.carbs),
+                            name = stringResource(id = string.protein),
                             amount = meal.protein,
                             unit = stringResource(id = string.grams)
                         )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
                         NutrientInfo(
-                            name = stringResource(id = string.carbs),
+                            name = stringResource(id = string.fat),
                             amount = meal.fat,
                             unit = stringResource(id = string.grams)
                         )
@@ -104,7 +104,11 @@ fun ExpandableMeal(
         }
     }
     Spacer(modifier = Modifier.height(spacing.spaceMedium))
-    AnimatedVisibility(visible = meal.isExpanded) {
+    AnimatedVisibility(
+        visible = meal.isExpanded,
+        enter = fadeIn() + expandVertically(),
+        exit = fadeOut() + shrinkVertically()
+    ) {
         content()
     }
 }
