@@ -4,20 +4,17 @@
 
 package com.gmail.hostov47.onboarding_presentation.height
 
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-
+import com.gmail.hostov47.core.R
 import com.gmail.hostov47.core.domain.preferences.Preferences
 import com.gmail.hostov47.core.domain.use_case.FilterOutDigits
-import com.gmail.hostov47.core.navigation.Route
 import com.gmail.hostov47.core.util.UiEvent
 import com.gmail.hostov47.core.util.UiText
-import com.gmail.hostov47.core.R
-
-
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -50,7 +47,7 @@ class HeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveHeight(heightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

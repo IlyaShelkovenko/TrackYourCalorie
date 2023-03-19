@@ -12,17 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.gmail.hostov47.core.R
-import com.gmail.hostov47.core.navigation.Route
-import com.gmail.hostov47.core.util.UiEvent
 import com.gmail.hostov47.core_ui.LocalSpacing
 import com.gmail.hostov47.onboarding_presentation.components.ActionButton
 
 
 @Composable
 fun WelcomeScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit
+    onNextClick: () -> Unit
 ) {
     val spacing = LocalSpacing.current
     Column(
@@ -40,7 +37,7 @@ fun WelcomeScreen(
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { onNavigate(UiEvent.Navigate(Route.GENDER)) },
+            onClick = { onNextClick() },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }

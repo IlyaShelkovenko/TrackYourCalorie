@@ -4,19 +4,16 @@
 
 package com.gmail.hostov47.onboarding_presentation.weight
 
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-
+import com.gmail.hostov47.core.R
 import com.gmail.hostov47.core.domain.preferences.Preferences
-import com.gmail.hostov47.core.navigation.Route
 import com.gmail.hostov47.core.util.UiEvent
 import com.gmail.hostov47.core.util.UiText
-import com.gmail.hostov47.core.R
-
-
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -49,7 +46,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

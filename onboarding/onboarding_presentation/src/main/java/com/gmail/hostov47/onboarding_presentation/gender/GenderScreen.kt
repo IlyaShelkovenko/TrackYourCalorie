@@ -4,7 +4,6 @@
 package com.gmail.hostov47.onboarding_presentation.gender
 
 
-import android.app.Notification.Action
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -16,24 +15,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.gmail.hostov47.core.util.UiEvent
-import com.gmail.hostov47.core_ui.LocalSpacing
 import com.gmail.hostov47.core.R
 import com.gmail.hostov47.core.domain.model.Gender
+import com.gmail.hostov47.core.util.UiEvent
+import com.gmail.hostov47.core_ui.LocalSpacing
 import com.gmail.hostov47.onboarding_presentation.components.ActionButton
 import com.gmail.hostov47.onboarding_presentation.components.SelectableButton
 import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GenderScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: GenderViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }

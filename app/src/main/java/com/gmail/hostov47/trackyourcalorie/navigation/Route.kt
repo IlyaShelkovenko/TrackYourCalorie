@@ -1,4 +1,4 @@
-package com.gmail.hostov47.core.navigation
+package com.gmail.hostov47.trackyourcalorie.navigation
 
 object Route {
     const val WELCOME = "welcome"
